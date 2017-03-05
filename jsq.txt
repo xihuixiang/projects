@@ -1,0 +1,64 @@
+
+<html>
+<head>
+	<title>php实现简单计算器</title>
+	<meta http-equiv="Content-Type"content="text/html;charset=utf-8">
+</head>
+<?php
+   
+    if(isset($_get["sub"])){
+        $sum=0;
+        switch ($_get["ysf"]) {
+            case '+':
+                $sum=$_get["num1"]+$_get["num2"];
+                break;
+            case '-':
+                $sum=$_get["num1"]-$_get["num2"];
+                break;
+            case '×':
+                $sum=$_get["num1"]*$_get["num2"];
+                break;
+            case '/':
+                $sum=$_get["num1"]/$_get["num2"];
+                break;
+            
+            
+        }
+    }
+?>
+<body>
+      <table align="center"border="1"width="500">
+                 <caption><h1>计算器</h1></caption>
+                 <form action="jsq.php">
+                 <tr>
+                 	 <td>
+                 	 	<input type="text" size="5"name="num1">
+                 	 </td>
+                 	 <td>
+                 	 	<select name="ysf">
+                 	 		<option value="+">+</option>
+                 	 		<option value="-">-</option>
+                 	 		<option value="×">×</option>
+                 	 		<option value="/">/</option>
+                 	 	</select>
+                 	 </td>
+                 	 
+                 	 <td>
+                 	    <input type="text"size="5"name="num2">
+                 	 </td>
+                 	 <td>
+                 	 	<input type="submit"name="sub"value="计算"
+                 	 </td>
+                 </tr>
+                 <?php
+                       if(isset($_get["sub"])){
+                        echo'<tr><td colspan="5">';
+                        echo"结果: ".$_get["num1"]." ".$_get["ysf"]." ".$_get["num2"]." = ".$sum."";
+                        echo'</td></tr>';
+                       }
+
+                 ?>
+                 </form>
+        </table>
+</body>
+</html>
